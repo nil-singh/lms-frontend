@@ -44,9 +44,12 @@ export const loginUser = createAsyncThunk(
 // REGISTER THUNK
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
-  async ({ email, password }: { email: string; password: string }, thunkAPI) => {
+  async (
+    { email, password, isAdmin }: { email: string; password: string; isAdmin: boolean },
+    thunkAPI
+  ) => {
     try {
-      const res = await api.post("/register_user", { email, password });
+      const res = await api.post("/register_user", { email, password, isAdmin });
       return res.data;
     } catch (err: any) {
       return thunkAPI.rejectWithValue(
@@ -55,6 +58,7 @@ export const registerUser = createAsyncThunk(
     }
   }
 );
+
 
 const authSlice = createSlice({
   name: "auth",

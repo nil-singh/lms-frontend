@@ -66,7 +66,7 @@ export default function Login() {
         <button
           onClick={submit}
           disabled={loading}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition disabled:opacity-50"
+          className=" cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition disabled:opacity-50"
         >
           {loading ? "Logging in..." : "Login"}
         </button>

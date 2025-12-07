@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Adaptive Learning Platform – Frontend (Next.js)
 
-## Getting Started
+This is the frontend application for the Adaptive Learning & Testing System.
+Built using Next.js 14 (App Router), TailwindCSS, and React, it provides:
 
-First, run the development server:
+Student dashboard
 
-```bash
+Adaptive test-taking interface
+
+Test history & analytics
+
+Admin dashboards (questions + results management)
+
+Authentication with JWT
+
+API communication with a NestJS backend
+
+🚀 Features
+👨‍🎓 Student Features
+
+Login & Dashboard
+
+Start new adaptive test
+
+Continue an in-progress test
+
+View past test history
+
+Performance analytics:
+
+Average score
+
+Best streak
+
+Accuracy
+
+Difficulty trends
+
+Total questions answered
+
+🧠 Adaptive Test Runner
+
+Pulls questions dynamically from backend
+
+Timer per question
+
+Auto-submit on timeout
+
+Difficulty adjusts based on correctness
+
+Test finishes when adaptive conditions are met
+
+🛠 Admin Features
+
+Create, update, delete questions
+
+View all users’ test results
+
+UI showing score, difficulty pattern, streaks etc.
+
+🧩 Tech Stack
+Technology Purpose
+Next.js 14 App Router Frontend framework
+React UI components
+TailwindCSS Styling
+Axios API requests
+React Icons Icons
+Jest + RTL (optional) Frontend tests
+JWT Authentication
+📦 Folder Structure
+frontend/
+├── app/
+│ ├── dashboard/
+│ ├── test/
+│ ├── admin/
+│ ├── login/
+│ └── globals.css
+├── components/
+│ ├── UserHeader.tsx
+│ ├── AdminHeader.tsx
+│ ├── StartTestButton.tsx
+│ ├── LogoutButton.tsx
+├── lib/
+│ └── api.ts (Axios instance)
+├── utils/
+│ └── stats.ts
+├── types/
+│ ├── testTypes.ts
+│ └── userTypes.ts
+├── public/
+└── package.json
+
+🔧 Setup Instructions
+1️⃣ Clone the repository
+git clone https://github.com/YOUR_USERNAME/lms-frontend.git
+cd lms-frontend
+
+2️⃣ Install dependencies
+npm install
+
+If backend runs on a different port, update accordingly.
+
+3️⃣ Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+👉 http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Authentication Flow
 
-## Learn More
+Frontend stores JWT token in cookies, and Axios sends it on every request:
 
-To learn more about Next.js, take a look at the following resources:
+Authorization: Bearer <token>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Login → Dashboard → Start Test → Answer Questions → Test History.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Admin routes require isAdmin: true.
 
-## Deploy on Vercel
+🧪 Testing (Optional)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You can run React Testing Library + Jest:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm run test
+
+Example test included for the adaptive UI components.
+
+🔗 API Integration
+
+The frontend expects the following backend endpoints:
+
+Auth
+
+POST /register_user
+
+POST /login_user
+
+Tests
+
+POST /tests/start
+
+GET /tests/:id/question
+
+POST /tests/:id/questions/:qid/answer
+
+GET /tests/user/all
+
+Admin
+
+GET /tests/admin/all-results
+
+POST /questions
+
+GET /questions
+
+🎨 Styling
+
+TailwindCSS utility-based styling
+
+Reusable component styles
+
+Responsive layouts for dashboards & test runner
+
+🧑‍💻 Development Scripts
+Command Description
+npm run dev //Start development server
+npm run build /Build project
+npm start Run //production build
+npm run lint //Lint project
+npm run test //Run tests

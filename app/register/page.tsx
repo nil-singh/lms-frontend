@@ -10,6 +10,7 @@ export default function Register() {
   const dispatch = useDispatch<any>();
   const router = useRouter();
   const { loading, error } = useSelector((state: RootState) => state.auth);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ export default function Register() {
   const submit = () => {
     setSuccessMsg("");
 
-    dispatch(registerUser({ email, password })).then((res: any) => {
+    dispatch(registerUser({ email, password, isAdmin })).then((res: any) => {
       if (res.meta.requestStatus === "fulfilled") {
         setSuccessMsg("Account created successfully! Redirecting to login...");
         setTimeout(() => router.push("/login"), 1500);
@@ -73,12 +74,23 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <div className="mb-4 flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={isAdmin}
+            onChange={(e) => setIsAdmin(e.target.checked)}
+            className="w-4 h-4 cursor-pointer"
+          />
+          <label className="text-gray-700 cursor-pointer">
+            Register as Admin
+          </label>
+        </div>
 
         {/* Register Button */}
         <button
           onClick={submit}
           disabled={loading}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition disabled:opacity-50"
+          className="cursor-pointer w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition disabled:opacity-50"
         >
           {loading ? "Creating Account..." : "Register"}
         </button>

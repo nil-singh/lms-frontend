@@ -25,14 +25,14 @@ export default function LandingPage() {
           <div className="flex items-center gap-4">
             <button
               onClick={() => router.push("/login")}
-              className="text-gray-700 hover:text-blue-600 font-medium"
+              className="cursor-pointer text-gray-700 hover:text-blue-600 font-medium"
             >
               Login
             </button>
 
             <button
               onClick={() => router.push("/register")}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              className=" cursor-pointer px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
             >
               Register
             </button>
@@ -54,7 +54,7 @@ export default function LandingPage() {
 
           <button
             onClick={handleStart}
-            className="mt-8 px-8 py-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 transition"
+            className="cursor-pointer mt-8 px-8 py-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 transition"
           >
             Start Test
           </button>

@@ -54,10 +54,6 @@ export default function TestRunner() {
   const [test, setTest] = useState<Test | null>(null);
   const [questionCount, setQuestionCount] = useState(0);
 
-  console.log(test, "Test All");
-
-  console.log(question, "AllQues");
-
   const MAX_QUESTIONS = 20;
   const QUESTION_TIME = 45;
 
@@ -266,13 +262,14 @@ export default function TestRunner() {
                                 <div className="text-5xl font-bold text-gray-900">
                                   {test?.score || 0}
                                   <span className="text-2xl text-gray-600">
-                                    /{test?.questionsAttempted || 0}
+                                    /{test?.questionsAttempted * 2 || 0}
                                   </span>
                                 </div>
                                 <div className="text-lg font-semibold text-blue-600 mt-2">
                                   {(() => {
                                     const score = test?.score || 0;
-                                    const total = test?.questionsAttempted || 1;
+                                    const total =
+                                      test?.questionsAttempted * 2 || 1;
                                     return total > 0
                                       ? Math.round((score / total) * 100)
                                       : 0;
