@@ -92,7 +92,7 @@ frontend/
 
 🔧 Setup Instructions
 1️⃣ Clone the repository
-git clone https://github.com/YOUR_USERNAME/lms-frontend.git
+git clone https://github.com/nil-singh/lms-frontend.git
 cd lms-frontend
 
 2️⃣ Install dependencies
